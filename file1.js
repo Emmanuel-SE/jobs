@@ -1,1 +1,1 @@
-const qmanu1=9;
+const manu1=9;
