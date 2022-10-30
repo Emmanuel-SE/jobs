@@ -1,0 +1,1 @@
+const qmanu1=9;
