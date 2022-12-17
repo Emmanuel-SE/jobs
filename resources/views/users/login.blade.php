@@ -47,6 +47,10 @@
                  </p>
                  @enderror
          </div>
+         <div class="form-group mb-3">
+            <label for="remember-me">Remember me</label>
+            <input type="checkbox" name="remember-me" value="1">
+      </div>
 
          <div class="mb-6">
              <button
@@ -57,12 +61,17 @@
              </button>
          </div>
 
-         <div class="mt-8">
+         <div class="flex items-center justify-between mt-6">
              <p>
                  Don't have an account?
                  <a href="/register" class="text-laravel"
                      >register</a
                  >
+             </p>
+             <p>
+                <a href="#" class="text-laravel ml-auto"
+                >Forgot Password?</a
+            >
              </p>
          </div>
      </form>

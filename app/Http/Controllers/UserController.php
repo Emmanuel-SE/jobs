@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -29,14 +30,14 @@ class UserController extends Controller
     $user=User::create($formFields);
 
     // login 
-    auth()->login($user);
+    Auth::login($user,$remember=1);
 
     return redirect('/')->with('message', 'User created and logged in');
    }
 
 // user logout
 public function logout(Request $request) {
-      auth()->logout();
+      Auth::logout();
 
       $request->session()->invalidate();
       $request->session()->regenerateToken();
@@ -56,7 +57,7 @@ public function authenticate(Request $request){
         'password' => 'required'
     ]);
 
-    if (auth()->attempt($formFields)) {
+    if (Auth::attempt($formFields,$remember=1)) {
         $request->session()->regenerate();
 
         return redirect('/')->with('message' , 'You are now logged in');
