@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -51,5 +52,9 @@ Route::post('/logout',[UserController::class ,'logout'])->middleware('auth');
 // show logn form 
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
+// Password reset
+Route::get('/forgot-password', function () {
+    return view('users.forgot-password');
+})->middleware('guest')->name('password.request');
 // user login
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);

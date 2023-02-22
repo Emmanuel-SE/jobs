@@ -69,7 +69,7 @@
                  >
              </p>
              <p>
-                <a href="#" class="text-laravel ml-auto"
+                <a href="/auth/forgot-password" class="text-laravel ml-auto"
                 >Forgot Password?</a
             >
              </p>
